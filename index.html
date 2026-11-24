@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EchoLedger — Vibrant Decision &amp; Consequence Studio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient-blobs" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <span class="blob blob-4"></span>
+  </div>
+
+  <main id="app">
+    <!-- 1. Details Entry Screen -->
+    <section id="details-screen" class="screen active">
+      <div class="card hero-card">
+        <span class="eyebrow">ECHOLEDGER • LIVING POLICY &amp; DILEMMA STUDIO</span>
+        <h1>EchoLedger</h1>
+        <p class="subtitle">
+          Step in with your persona, choose your approach, and watch vibrant square decisions
+          bulge, drift, and reshape public trust, harmony, and budget in real time.
+        </p>
+
+        <form id="user-details-form" class="form-grid">
+          <div class="field">
+            <label for="player-name">Your Name</label>
+            <input
+              type="text"
+              id="player-name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="player-role">Your Role (16 Options)</label>
+            <select id="player-role">
+              <option value="City Mediator">City Mediator (Civic &amp; Street Peace)</option>
+              <option value="Policy Advisor">Policy Advisor</option>
+              <option value="Community Steward">Community Steward</option>
+              <option value="Urban Planner">Urban Planner</option>
+              <option value="Budget Commissioner">Budget Commissioner</option>
+              <option value="Youth &amp; Campus Envoy">Youth &amp; Campus Envoy</option>
+              <option value="Small Business Advocate">Small Business Advocate</option>
+              <option value="Heritage &amp; Culture Curator">Heritage &amp; Culture Curator</option>
+              <option value="Ecology &amp; Green Lead">Ecology &amp; Green Lead</option>
+              <option value="Water &amp; Utility Director">Water &amp; Utility Director</option>
+              <option value="Transit &amp; Mobility Coordinator">Transit &amp; Mobility Coordinator</option>
+              <option value="Public Health Liaison">Public Health Liaison</option>
+              <option value="Neighborhood Ombudsperson">Neighborhood Ombudsperson</option>
+              <option value="Festival &amp; Commons Organizer">Festival &amp; Commons Organizer</option>
+              <option value="Housing &amp; Tenant Counsel">Housing &amp; Tenant Counsel</option>
+              <option value="Conflict Resolution Fellow">Conflict Resolution Fellow</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="player-stance">Starting Approach (16 Options)</label>
+            <select id="player-stance">
+              <option value="Balanced">Balanced &amp; Pragmatic</option>
+              <option value="Principled">Principled &amp; Firm</option>
+              <option value="Adaptive">Flexible &amp; Collaborative</option>
+              <option value="Empathetic">Deeply Empathetic</option>
+              <option value="Frugal">Cost-Smart &amp; Frugal</option>
+              <option value="Bold Reformer">Bold Reformer</option>
+              <option value="Consensus Builder">Consensus Builder</option>
+              <option value="Data &amp; Evidence First">Data &amp; Evidence First</option>
+              <option value="Grassroots Listener">Grassroots Listener</option>
+              <option value="Long-Horizon Visionary">Long-Horizon Visionary</option>
+              <option value="Rapid Troubleshooter">Rapid Troubleshooter</option>
+              <option value="Fairness Guardian">Fairness Guardian</option>
+              <option value="Creative Mediator">Creative Mediator</option>
+              <option value="Cautious Pilot Lead">Cautious Pilot Lead</option>
+              <option value="Transparent Communicator">Transparent Communicator</option>
+              <option value="Resilience Strategist">Resilience Strategist</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn primary-btn">Launch Pop-Up Squares</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. Scenario & Bulging/Drifting Pop-Up Square Cards Screen -->
+    <section id="options-screen" class="screen">
+      <header id="hud" class="hud card">
+        <div class="hud-identity">
+          <strong id="hud-user"></strong>
+          <div class="hud-meta-row">
+            <span id="hud-round" class="badge"></span>
+            <span id="hud-role-note" class="role-chip"></span>
+          </div>
+        </div>
+
+        <div class="meters">
+          <div class="meter meter-trust">
+            <div class="meter-top">
+              <span>Public Trust</span>
+              <span id="trust-val">50</span>
+            </div>
+            <div class="meter-track">
+              <div id="trust-bar" class="meter-fill" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="meter meter-harmony">
+            <div class="meter-top">
+              <span>Harmony</span>
+              <span id="harmony-val">50</span>
+            </div>
+            <div class="meter-track">
+              <div id="harmony-bar" class="meter-fill" style="width: 50%;"></div>
+            </div>
+          </div>
+
+          <div class="meter meter-budget">
+            <div class="meter-top">
+              <span>Budget</span>
+              <span id="budget-val">50</span>
+            </div>
+            <div class="meter-track">
+              <div id="budget-bar" class="meter-fill" style="width: 50%;"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="workspace card">
+        <div class="scenario-header">
+          <span id="scenario-tag" class="tag"></span>
+          <h2 id="scenario-title"></h2>
+          <p id="scenario-prompt" class="scenario-prompt"></p>
+          <p id="mediator-spotlight" class="mediator-spotlight"></p>
+          <p id="selection-hint" class="selection-hint"></p>
+        </div>
+
+        <!-- Bulging & Drifting Pop-Up Square Option Cards Grid -->
+        <div id="square-options-grid" class="square-grid"></div>
+
+        <div class="actions-row">
+          <button id="clear-selection-btn" type="button" class="btn ghost-btn">
+            Clear Selection
+          </button>
+          <button id="confirm-choices-btn" type="button" class="btn primary-btn" disabled>
+            Lock In Choices
+          </button>
+        </div>
+
+        <!-- Live Consequence Panel After Confirming Choices -->
+        <div id="round-outcome" class="outcome-panel hidden">
+          <h3>Ripple Effects &amp; Reactions</h3>
+          <p id="outcome-summary"></p>
+          <ul id="outcome-reactions" class="reactions-list"></ul>
+          <button id="next-round-btn" type="button" class="btn primary-btn">
+            Continue
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Final Summary Screen -->
+    <section id="summary-screen" class="screen">
+      <div class="card summary-card">
+        <span class="eyebrow">SESSION DOSSIER</span>
+        <h2>Final Outcome Summary</h2>
+        <div id="summary-content" class="summary-body"></div>
+        <div class="actions-row">
+          <button id="restart-btn" type="button" class="btn primary-btn">
+            Play Again
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
